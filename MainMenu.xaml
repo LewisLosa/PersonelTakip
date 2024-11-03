@@ -1,0 +1,92 @@
+﻿<Page x:Class="PersonelTakip.MainMenu"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+      Title="Ana Menü">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Dashboard üst kısım -->
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Panel 1 -->
+                <Border Background="#080708" Width="250" Height="120" CornerRadius="10" Margin="5" Grid.Column="0">
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock Text="10" FontSize="30" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
+                        <TextBlock Text="Toplam Personel Sayısı" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" Foreground="White"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Panel 2 -->
+                <Border Background="#fdca40" Width="250" Height="120" CornerRadius="10" Margin="5" Grid.Column="1">
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock Text="7" FontSize="30" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
+                        <TextBlock Text="Toplam Mavi Yaka Sayısı" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" Foreground="White"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Panel 3 -->
+                <Border Background="#3772ff" Width="250" Height="120" CornerRadius="10" Margin="10" Grid.Column="2">
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock Text="3" FontSize="30" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
+                        <TextBlock Text="Mavi Yaka İşe Gelen" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" Foreground="White"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Panel 4 -->
+                <Border Background="#df2935" Width="250" Height="120" CornerRadius="10" Margin="10" Grid.Column="3">
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock Text="4" FontSize="30" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
+                        <TextBlock Text="Mavi Yaka Gelmeyen" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" Foreground="White"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+            <!-- Yapılacaklar Listesi (Todo List) -->
+            <Border Background="#181818" CornerRadius="15" Margin="40,20,40,40" Grid.Row="2" RenderTransformOrigin="0.5,0.5">
+                <Grid Margin="30">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Yapılacaklar Başlık -->
+                    <TextBlock Text="Yapılacaklar Todo List" FontSize="48" FontWeight="Bold" Foreground="#F4B400" Grid.Row="0" Margin="0,0,100,15"/>
+
+                    <!-- Responsive Butonlar -->
+                    <Button Width="45" Height="45" HorizontalAlignment="Right" VerticalAlignment="Top" Background="#FFD92E" Foreground="White" Grid.Row="0" BorderThickness="0" Margin="0,10,0,10">
+                        <iconPacks:PackIconMaterial Kind="PlusCircle" Width="24" Height="24" VerticalAlignment="Center"/>
+                    </Button>
+
+                    <Button Width="45" Height="45" HorizontalAlignment="Right" VerticalAlignment="Top" Background="#A11010" Foreground="White" Grid.Row="0" BorderThickness="0" Margin="0,10,65,10">
+                        <iconPacks:PackIconMaterial Kind="Delete" Width="24" Height="24" VerticalAlignment="Center"/>
+                    </Button>
+
+                    <!-- Yapılacaklar Tablo (DataGrid gibi) -->
+                    <DataGrid Grid.Row="1" AutoGenerateColumns="False" CanUserAddRows="False" HeadersVisibility="Column" BorderBrush="Transparent" AlternatingRowBackground="WhiteSmoke" Margin="0,30,0,0">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Sıra" Binding="{Binding Sira}" Width="50"/>
+                            <DataGridTextColumn Header="Tarih" Binding="{Binding Tarih}" Width="100"/>
+                            <DataGridTextColumn Header="Görev Adı" Binding="{Binding GorevAdi}" Width="250"/>
+                            <DataGridTextColumn Header="Seviye" Binding="{Binding Seviye}" Width="120"/>
+                            <DataGridTextColumn Header="Açıklama" Binding="{Binding Aciklama}" Width="250"/>
+                            <DataGridTextColumn Header="Durum" Binding="{Binding Durum}" Width="120"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </Border>
+        </Grid>
+    </ScrollViewer>
+</Page> 

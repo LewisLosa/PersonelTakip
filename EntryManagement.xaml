@@ -1,0 +1,57 @@
+﻿<Page x:Class="PersonelTakip.EntryManagement"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+      Title="Giriş/Çıkış Yönetimi">
+
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <!-- Başlık Alanı -->
+                <RowDefinition Height="*"/>
+                <!-- İçerik Alanı -->
+            </Grid.RowDefinitions>
+
+            <!-- Başlık Alanı -->
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock FontSize="24" FontWeight="Bold" Margin="0,0,10,0" ><Run Text="Giriş"/><Run Language="tr-tr" Text=" "/><Run Text="/"/><Run Language="tr-tr" Text=" "/><Run Text="Çıkış"/><Run Language="tr-tr" Text=" Takibi"/></TextBlock>
+                <Button x:Name="CheckInButton" Content="Giriş" Width="100" MinWidth="80" Margin="5" Background="#4CAF50" Foreground="White" Click="CheckInButton_Click"/>
+                <Button x:Name="CheckOutButton" Content="Çıkış" Width="100" MinWidth="80" Margin="5" Background="#2196F3" Foreground="White" Click="CheckOutButton_Click"/>
+                <Button x:Name="DeleteRecordButton" Content="Sil" Width="100" MinWidth="80" Margin="5" Background="#F44336" Foreground="White" Click="DeleteRecordButton_Click"/>
+            </StackPanel>
+
+            <!-- İçerik Alanı -->
+            <Grid Grid.Row="1" Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <!-- Arama Barı -->
+                    <RowDefinition Height="*"/>
+                    <!-- Giriş/Çıkış Listesi -->
+                </Grid.RowDefinitions>
+
+                <!-- Arama Barı -->
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,10">
+                    <TextBox Width="300" MinWidth="200" controls:TextBoxHelper.Watermark="Ara..." Margin="5"/>
+                    <Button Content="Ara" Width="75" MinWidth="50" Background="#2196F3" Foreground="White"/>
+                </StackPanel>
+
+                <!-- Giriş/Çıkış Listesi -->
+                <DataGrid Grid.Row="1" AutoGenerateColumns="False" CanUserAddRows="False" HeadersVisibility="Column"
+                          BorderBrush="#2D2D30" AlternatingRowBackground="WhiteSmoke"
+                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                          ColumnWidth="*">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="*" MinWidth="50"/>
+                        <DataGridTextColumn Header="Ad" Binding="{Binding Ad}" Width="*" MinWidth="120"/>
+                        <DataGridTextColumn Header="Soyad" Binding="{Binding Soyad}" Width="*" MinWidth="120"/>
+                        <DataGridTextColumn Header="Giriş Tarihi" Binding="{Binding GirisTarihi}" Width="*" MinWidth="100"/>
+                        <DataGridTextColumn Header="Çıkış Tarihi" Binding="{Binding CikisTarihi}" Width="*" MinWidth="100"/>
+                        <DataGridTextColumn Header="Departman" Binding="{Binding Departman}" Width="*" MinWidth="100"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+            </Grid>
+        </Grid>
+    </ScrollViewer>
+</Page>

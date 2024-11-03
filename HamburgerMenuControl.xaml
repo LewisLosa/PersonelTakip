@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="PersonelTakip.HamburgerMenuControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks">
+    <controls:HamburgerMenu Background="#1D1D20" ItemClick="HamburgerMenu_ItemClick">
+        <controls:HamburgerMenu.ItemTemplate>
+            <DataTemplate DataType="{x:Type controls:HamburgerMenuGlyphItem}">
+                <Grid Height="48">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="48" />
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Margin="12" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                               Text="{Binding Glyph}" 
+                               FontFamily="Segoe MDL2 Assets" 
+                               FontSize="24" 
+                               Foreground="White" />
+                    <TextBlock Grid.Column="1" VerticalAlignment="Center" FontSize="16" 
+                               Text="{Binding Label}" 
+                               FontFamily="Segoe UI" 
+                               Foreground="White" 
+                               FontWeight="Regular"/>
+                </Grid>
+            </DataTemplate>
+        </controls:HamburgerMenu.ItemTemplate>
+        <controls:HamburgerMenu.ItemsSource>
+            <controls:HamburgerMenuItemCollection>
+                <controls:HamburgerMenuGlyphItem Glyph="&#xE10F;" Label="Ana Menü"/>
+                <controls:HamburgerMenuSeparatorItem/>
+                <controls:HamburgerMenuGlyphItem Glyph="&#xE716;" Label="Personel Yönetimi"/>
+                <controls:HamburgerMenuGlyphItem Glyph="&#xE7FD;" Label="Giriş / Çıkış Takibi"/>
+                <controls:HamburgerMenuGlyphItem Glyph="&#xE133;" Label="Mesai / İzin Yönetimi"/>
+                <controls:HamburgerMenuSeparatorItem/>
+                <controls:HamburgerMenuGlyphItem Glyph="&#xE713;" Label="Seçenekler"/>
+            </controls:HamburgerMenuItemCollection>
+        </controls:HamburgerMenu.ItemsSource>
+    </controls:HamburgerMenu>
+</UserControl>
